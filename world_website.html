@@ -1,0 +1,113 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>world_website</title>
+	<link href="world_webiste.css" rel="stylesheet" type="text/css">
+	<script src="https://www.amcharts.com/lib/4/core.js"></script>
+	<script src="https://www.amcharts.com/lib/4/maps.js"></script>
+	<script src="https://www.amcharts.com/lib/4/geodata/worldLow.js"></script>
+    <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
+	<link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
+<body>
+	<script>
+	am4core.ready(function() {
+	
+	// Themes begin
+	am4core.useTheme(am4themes_animated);
+	// Themes end
+	
+	var chart = am4core.create("chartdiv", am4maps.MapChart);
+	
+	// Set map definition
+	chart.geodata = am4geodata_worldLow;
+	
+	// Set projection
+	chart.projection = new am4maps.projections.Orthographic();
+	chart.panBehavior = "rotateLongLat";
+	chart.deltaLatitude = -20;
+	chart.padding(80,80,80,80);
+	
+	// limits vertical rotation
+	chart.adapter.add("deltaLatitude", function(delatLatitude){
+		return am4core.math.fitToRange(delatLatitude, -90, 90);
+	})
+	
+	// Create map polygon series
+	var polygonSeries = chart.series.push(new am4maps.MapPolygonSeries());
+	
+	// Make map load polygon (like country names) data from GeoJSON
+	polygonSeries.useGeodata = true;
+	
+	// Configure series
+	var polygonTemplate = polygonSeries.mapPolygons.template;
+	polygonTemplate.tooltipText = "[#ffffff font-size:20px text-transform: uppercase]{name}[/]";
+	polygonTemplate.fill = am4core.color("#fca47e");
+	polygonTemplate.stroke = am4core.color("#ffd1bc");
+	polygonTemplate.strokeWidth = 0.5;
+	
+	var graticuleSeries = chart.series.push(new am4maps.GraticuleSeries());
+	graticuleSeries.mapLines.template.line.stroke = am4core.color("#ffffff");
+	graticuleSeries.mapLines.template.line.strokeOpacity = 0.08;
+	graticuleSeries.fitExtent = false;
+	
+	
+    chart.backgroundSeries.mapPolygons.template.polygon.fill = am4core.color("#7edffc");
+    chart.backgroundSeries.mapPolygons.template.polygon.fillOpacity = 1;
+	
+	// Create hover state and set alternative fill color
+	var hs = polygonTemplate.states.create("hover");
+	hs.properties.fill = am4core.color("#3796b3");
+	
+	let animation;
+	setTimeout(function(){
+	  animation = chart.animate({property:"deltaLongitude", to:100000}, 20000000);
+	}, 3000)
+	
+	chart.seriesContainer.events.on("down", function(){
+	if(animation){
+	  animation.stop();
+	}
+	})
+	
+	}); // end am4core.ready()
+    chart.backgroundSeries.mapPolygons.template.polygon.fill = am4core.color("#aadaff");
+    chart.backgroundSeries.mapPolygons.template.polygon.fillOpacity = 1;
+	</script>	
+<header class="page-header">
+	<input id="menu-toggle-input" type="checkbox" />
+	<label class="menu-toggle" for="menu-toggle-input">
+	  <span></span>
+	  <span></span>
+	  <span></span>
+	  <span></span>
+	  <span></span>
+	  <span></span>
+	</label>
+	<nav class="menu">
+	  <ol>
+		<li class="menu-item"><a href="#0">HOME</a></li>
+		<li class="menu-item"><a href="#0">COUNTRY NAME</a></li>
+		<li class="menu-item">
+		  <a href="#0">GENERAL INFORMATION</a>
+		  <ol class="sub-menu">
+			<li class="menu-item"><a href="#0">POPULATION</a></li>
+			<li class="menu-item"><a href="#0">ECONOMIC STATUS</a></li>
+			<li class="menu-item"><a href="#0">RANKING</a></li>
+		  </ol>
+		</li>
+		<li class="menu-item">
+		  <a href="#0">GEOGRAPHICAL INFORMATION</a>
+		  <ol class="sub-menu">
+			<li class="menu-item"><a href="#0">CITY</a></li>
+			<li class="menu-item"><a href="#0">DISTRICT</a></li>
+			<li class="menu-item"><a href="#0">REGION</a></li>
+		  </ol>
+		</li>
+		<li class="menu-item"><a href="#0">LANGUAGE USED</a></li>
+	  </ol>
+	</nav>
+  </header>
+  <div id="chartdiv"></div>
+</body>
+</html>

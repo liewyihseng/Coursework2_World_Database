@@ -42,8 +42,9 @@
 	// Configure series
 	var polygonTemplate = polygonSeries.mapPolygons.template;
 	polygonTemplate.tooltipText = "[#ffffff font-size:20px text-transform: uppercase]{name}[/]";
-	polygonTemplate.fill = am4core.color("#fca47e");
-	polygonTemplate.stroke = am4core.color("#ffd1bc");
+	polygonTemplate.fill = am4core.color("#Fbd75c");
+	polygonTemplate.fillOpacity = 1;
+	polygonTemplate.stroke = am4core.color("#00264d");
 	polygonTemplate.strokeWidth = 0.5;
 	
 	var graticuleSeries = chart.series.push(new am4maps.GraticuleSeries());
@@ -53,11 +54,11 @@
 	
 	
     chart.backgroundSeries.mapPolygons.template.polygon.fill = am4core.color("#7edffc");
-    chart.backgroundSeries.mapPolygons.template.polygon.fillOpacity = 1;
+    chart.backgroundSeries.mapPolygons.template.polygon.fillOpacity = 0.1;
 	
 	// Create hover state and set alternative fill color
 	var hs = polygonTemplate.states.create("hover");
-	hs.properties.fill = am4core.color("#3796b3");
+	hs.properties.fill = am4core.color("#00498d");
 	
 	let animation;
 	setTimeout(function(){

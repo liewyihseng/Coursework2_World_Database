@@ -11,11 +11,11 @@
 
 ![homepage](https://user-images.githubusercontent.com/63183176/81165204-32640880-8fc4-11ea-9cd2-92be7021fdef.png)
 
-## Navigation Bar
+## Navigation Bar 🧭
 
 ![comp1](https://user-images.githubusercontent.com/63183176/81163513-7bff2400-8fc1-11ea-9967-388919b36557.png)
 
-## Some other pages
+## Some other pages 📑
 
 ![comp2](https://user-images.githubusercontent.com/63183176/81163962-1eb7a280-8fc2-11ea-9683-52fddecba109.png)
 
@@ -45,7 +45,7 @@ Video: https://numcmy-my.sharepoint.com/personal/hfywc5_nottingham_edu_my/_layou
 
 ## About Us 🌐
 
-We believed there is a better way to represent the global data. A more interactive, user-friendly,infographic way where the visitor can easily look up for the data they wish to know about in an easier way. We're obsessively passionate about it and our mission is help people to achieve it. We focus on data normalization. Its' one of the underestimated aspect for data representation, we see that as an opportunity.
+We believed there is a better way to represent the global data. A more interactive, user-friendly,infographic way where the visitor can easily look up for the data they wish to know about in an easier way. We're obsessively passionate about it and our mission is help people to achieve it. We focus on data normalization. Its' one of the underestimated aspect for data representation, we see that as an oppotunity.
 
 ## How to 📖
 

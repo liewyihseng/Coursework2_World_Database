@@ -31,4 +31,4 @@ Some other pages
 
 
 
-![logo](https://user-images.githubusercontent.com/63183176/81170536-70b1f580-8fcd-11ea-8b80-07e2f5a652cf.png)
+![logo](https://user-images.githubusercontent.com/63183176/81170802-e0c07b80-8fcd-11ea-9950-0845c0347ac0.png)

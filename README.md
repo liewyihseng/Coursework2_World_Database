@@ -45,7 +45,7 @@ Video: https://numcmy-my.sharepoint.com/personal/hfywc5_nottingham_edu_my/_layou
 
 ## About Us 🌐
 
-We believed there is a better way to represent the global data. A more interactive, user-friendly,infographic way where the visitor can easily look up for the data they wish to know about in an easier way. We're obsessively passionate about it and our mission is help people to achieve it. We focus on data normalization. Its' one of the underestimated aspect for data representation, we see that as an oppotunity.
+We believed there is a better way to represent the global data. A more interactive, user-friendly,infographic way where the visitor can easily look up for the data they wish to know about in an easier way. We're obsessively passionate about it and our mission is help people to achieve it. We focus on data normalization. Its' one of the underestimated aspect for data representation, we see that as an opportunity.
 
 ## How to 📖
 

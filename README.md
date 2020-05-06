@@ -17,7 +17,9 @@ Some other pages
 
 ![comp2](https://user-images.githubusercontent.com/63183176/81163962-1eb7a280-8fc2-11ea-9683-52fddecba109.png)
 
+![comp3](https://user-images.githubusercontent.com/63183176/81164143-72c28700-8fc2-11ea-8b9e-04bd9a65e6c1.png)
 
+![comp4](https://user-images.githubusercontent.com/63183176/81164301-b6b58c00-8fc2-11ea-8b87-2615b397f1a5.png)
 
 
 # Mobile view

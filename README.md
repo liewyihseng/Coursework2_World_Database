@@ -27,5 +27,5 @@ Some other pages
 
 # Mobile view
 
-![mobileall](https://user-images.githubusercontent.com/63183176/81170185-cfc33a80-8fcc-11ea-8664-104849574109.png)
+![mobileall](https://user-images.githubusercontent.com/63183176/81170387-2cbef080-8fcd-11ea-8746-a39c371b1958.png)
 

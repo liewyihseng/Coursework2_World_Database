@@ -10,7 +10,7 @@ devices ranging from large screen devices all the way to mobile phones.
 # Desktop view
 Homepage
 
-![homepage](https://user-images.githubusercontent.com/63183176/81164847-933f1100-8fc3-11ea-96ab-36b7efa2a05e.png)
+![homepage](https://user-images.githubusercontent.com/63183176/81165204-32640880-8fc4-11ea-9cd2-92be7021fdef.png)
 
 Navigation Bar
 

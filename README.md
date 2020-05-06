@@ -30,8 +30,6 @@
 
 
 
-![logo](https://user-images.githubusercontent.com/63183176/81170802-e0c07b80-8fcd-11ea-9950-0845c0347ac0.png)
-
 
 ## Legal Notices ⚖️
 
@@ -50,3 +48,7 @@ We believed there is a better way to represent the global data. A more interacti
 ## How to 📖
 
 Just click the link above and start your journey.If you curious on what you can do at here, Do check on the video above, let our charming commentator guide you. Have fun 😉
+
+
+
+![logo](https://user-images.githubusercontent.com/63183176/81170802-e0c07b80-8fcd-11ea-9950-0845c0347ac0.png)

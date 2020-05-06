@@ -26,6 +26,6 @@ Some other pages
 
 
 # Mobile view
-Homepage
 
-![mobile](https://user-images.githubusercontent.com/63183176/81168845-59253d80-8fca-11ea-8e53-7cb72838047c.png)
+![mobileall](https://user-images.githubusercontent.com/63183176/81170185-cfc33a80-8fcc-11ea-8664-104849574109.png)
+

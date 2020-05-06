@@ -9,7 +9,14 @@ devices ranging from large screen devices all the way to mobile phones.
 
 # Desktop view
 Navigation Bar
+
 ![comp1](https://user-images.githubusercontent.com/63183176/81163513-7bff2400-8fc1-11ea-9967-388919b36557.png)
+
+
+Some other pages
+
+![comp2](https://user-images.githubusercontent.com/63183176/81163962-1eb7a280-8fc2-11ea-9683-52fddecba109.png)
+
 
 
 

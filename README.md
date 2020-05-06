@@ -8,10 +8,13 @@ devices ranging from large screen devices all the way to mobile phones.
 ![upload1](https://user-images.githubusercontent.com/63183176/81162410-b8ca1b80-8fbf-11ea-908b-e7b2f7cdff1d.png)
 
 # Desktop view
+Homepage
+
+![homepage](https://user-images.githubusercontent.com/63183176/81164847-933f1100-8fc3-11ea-96ab-36b7efa2a05e.png)
+
 Navigation Bar
 
 ![comp1](https://user-images.githubusercontent.com/63183176/81163513-7bff2400-8fc1-11ea-9967-388919b36557.png)
-
 
 Some other pages
 

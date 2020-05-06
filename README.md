@@ -26,7 +26,7 @@
 
 # Mobile view 📱
 
-![mobileall](https://user-images.githubusercontent.com/63183176/81170387-2cbef080-8fcd-11ea-8746-a39c371b1958.png)
+![](https://user-images.githubusercontent.com/63183176/81170387-2cbef080-8fcd-11ea-8746-a39c371b1958.png | height=50)
 
 
 

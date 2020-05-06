@@ -29,10 +29,6 @@
 ![mobile](https://user-images.githubusercontent.com/63183176/81170387-2cbef080-8fcd-11ea-8746-a39c371b1958.png)
 
 
-
-![logo](https://user-images.githubusercontent.com/63183176/81170802-e0c07b80-8fcd-11ea-9950-0845c0347ac0.png)
-
-
 ## Legal Notices ⚖️
 
 The sample data used in the world database is Copyright Statistics Finland, http://www.stat.fi/worldinfigures.
@@ -50,3 +46,5 @@ We believed there is a better way to represent the global data. A more interacti
 ## How to 📖
 
 Just click the link above and start your journey.If you curious on what you can do at here, Do check on the video above, let our charming commentator guide you. Have fun 😉
+
+![logo](https://user-images.githubusercontent.com/63183176/81170802-e0c07b80-8fcd-11ea-9950-0845c0347ac0.png)

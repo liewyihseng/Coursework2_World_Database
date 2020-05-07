@@ -1,8 +1,10 @@
 <?php
     require "../database_linking.php";
-    echo '<link rel="stylesheet" href="Select_Style.css">';
-    echo '<link rel="stylesheet" href="insert_style.css">';	
+    echo '<link rel="stylesheet" href="../css/Select_Style.css">';
+    echo '<link rel="stylesheet" href="../css/insert_style.css">';
     echo '<link rel="icon" href="../css/globe.png">';
+    echo '<link rel="stylesheet" type="text/css" media="only screen and (max-device-width: 1300px)" href="../css/phonetesting.css" />';
+    echo '<link rel="stylesheet" type="text/css" media="only screen and (min-device-width: 1301px)" href="../css/normal.css" />';
     echo '<title>Country Detail</title>';
 ?>
 
@@ -217,23 +219,28 @@
 
 <!-- HTML -->
 <button style="position:absolute;top:10px;left:10px;font-size:20px;font-family: 'Open Sans', sans-serif;" onclick="window.location.href='javascript:window.history.back()'">BACK</button>
-<h1 style="width:70%;margin:30px auto;">
+<h1 class= "countryname">
     <?php echo $c_name ?>
+    
 </h1>
-<div style="display: flex; flex-direction: row;height:76vh;width:100vw;max-height:1000px;margin:auto auto;">
-    <div id="chartdiv" style="height:76%;width:40%;margin:10% 0 4% 2%;">
+<div class= "column">
+
+    <div class= "countrymap" id="chartdiv">
     </div>
-    <div style="display: flex; flex-direction: column;height:90%;width:60%;margin:5% 0;">
-      <div id="radardiv" style="height:70%;width:100%;display:flex;max-height:400px;">
+
+    <div class= "chartdesc">
+    
+      <div class="countrychart" id="radardiv">
       </div>
-      <div  style="height:30%;width:90%;margin:auto;display:flex;">
-          <p style="color:white;font-size:17px;line-height: 1.6;text-align: justify;">
-          <?php echo $c_name ?> (<?php echo $c_code ?>) is a <?php echo $c_continent ?> country which has a surface area of <?php echo $SA ?>. 
-          This country achieved independence in the year of <?php echo $c_indep_year ?> and the form of government since then is <?php echo $c_government_form ?>. 
-          <?php echo $c_name ?> has a population of <?php echo $P ?> with life expectancy of <?php echo $LE ?>. 
-          The official language in this country is <?php echo $O_L ?> and the percentage of this language used in the country is <?php echo $O_L_P ?>. 
-          Capital city of <?php echo $c_name ?> is <?php echo $c_capital_name ?>  that usually physically encompasses the government’s offices and meeting places; the status as capital is often designated by its law or constitution. 
-          In the year 2000, the Gross National Product (GNP) / Gross Domestic Product (GDP) of the <?php echo $c_name ?> is <?php echo $GNP ?>.
+     
+      <div class="countrydesc">
+          <p class="desc">
+          <?php echo $c_name ?> (<?php echo utf8_encode($c_code) ?>) is a <?php echo utf8_encode($c_continent) ?> country which has a surface area of <?php echo utf8_encode($SA) ?>km<sup>2</sup>. 
+          This country achieved independence in the year of <?php echo utf8_encode($c_indep_year) ?> and the form of government since then is <?php echo utf8_encode($c_government_form) ?>. 
+          <?php echo $c_name ?> has a population of <?php echo utf8_encode($P) ?> with life expectancy of <?php echo utf8_encode($LE) ?>. 
+          The official language in this country is <?php echo utf8_encode($O_L) ?> and the percentage of this language used in the country is <?php echo utf8_encode($O_L_P) ?>%. 
+          Capital city of <?php echo utf8_encode($c_name) ?> is <?php echo utf8_encode($c_capital_name) ?>  that usually physically encompasses the government’s offices and meeting places; the status as capital is often designated by its law or constitution. 
+          In the year 2000, the Gross National Product (GNP) / Gross Domestic Product (GDP) of the <?php echo utf8_encode($c_name) ?> is <?php echo utf8_encode($GNP) ?>.
           </p>
       </div>
     </div>

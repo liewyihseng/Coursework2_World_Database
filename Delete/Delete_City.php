@@ -41,14 +41,14 @@
                                     $query="SELECT CityID,CityName FROM `city` where CityID='$c_name'";
                                     $s_result = $conn->query($query);
                                     $s_row = $s_result->fetch_assoc();
-                                    echo    "<option value='". $s_row["CityID"]."' selected>". $s_row["CityName"]."</option>"    ;
+                                    echo    "<option value='". utf8_encode($s_row["CityID"])."' selected>". utf8_encode($s_row["CityName"])."</option>"    ;
                                 }
                                 else
                                     echo    "<option value='' disabled selected>Select your option</option>"    ;
                                 while($row = $result->fetch_assoc())
                                 {
-                                    echo "<option value=". $row["CityID"].">"
-                                                            . $row["CityName"].
+                                    echo "<option value=". utf8_encode($row["CityID"]).">"
+                                                            . utf8_encode($row["CityName"]).
                                             "</option>";
                                 }
                                 echo "</select></br></br><input type = 'submit' name = 'submit' value = 'Submit'>

@@ -39,7 +39,7 @@ if(isset($_GET['regionID']))
 	
 	if ($result->num_rows > 0) {
 			echo "<tr>
-					<th>CountryName</th>
+					<th>Country Name</th>
 					<th>GNP Growth</th>
 				</tr>";
 			echo "<br>";
@@ -47,7 +47,7 @@ if(isset($_GET['regionID']))
 			while($row = $result->fetch_assoc())
 			{
 				echo "<tr> 
-							<td>" . $row["CountryName"]. "</td>
+							<td>" . utf8_encode($row["CountryName"]). "</td>
 							<td>" . $row["GNP Growth"].  "</td>
 						</tr>";
 				echo "<br>";

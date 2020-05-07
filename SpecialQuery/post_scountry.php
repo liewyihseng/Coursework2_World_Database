@@ -4,7 +4,7 @@
         <meta charset = "utf-8"/>
         <meta name = "viewport" content = "width = device-width, initial-scale = 0.8"/>
         <link rel="icon" href="../css/globe.png">
-        <link rel="stylesheet" href="../Select/Select_Style.css">
+        <link rel="stylesheet" href="../css/Select_Style.css">
         <link rel="stylesheet" href="../css/insert_style.css">
         <link rel="stylesheet" type="text/css" media="only screen and (max-device-width: 1300px)" href="../css/small-device.css" />
         <link rel="stylesheet" type="text/css" media="only screen and (min-device-width: 1301px)" href="../css/big-device.css" />
@@ -31,16 +31,17 @@
                     <label for = "CityName">City Name : </label>
                     </br>
                     </br>
-                        <select name = "CityName" required>
+                        <select name = "CityID" required>
                             <option value='' disabled selected>Select your option</option>
                             <?php
-                                $sql1= "SELECT city.CityName FROM city INNER JOIN general_information ON general_information.Capital = city.CityID ORDER BY city.CityName ASC";
+                                $sql1= "SELECT city.cityID, city.CityName FROM city INNER JOIN general_information ON general_information.Capital = city.CityID ORDER BY city.CityName ASC";
                                 $data1 = mysqli_query($conn, $sql1);
                                 $result1 = mysqli_fetch_assoc($data1);
                                 while($result1 = mysqli_fetch_assoc($data1))
                                 {
-                                    $City = $result1['CityName'];
-                                    echo "<option value= '$City'>$City</option>";
+                                    $City = utf8_encode($result1['CityName']);
+                                    $CityID = $result1['cityID'];
+                                    echo "<option value= '$CityID'>$City</option>";
                                 }
                             ?>
                             
@@ -56,12 +57,12 @@
             if(isset($_POST['submit']))
             {
               
-                if(isset($_POST['CityName']))
+                if(isset($_POST['CityID']))
                 {
-                    $CityName = $_POST['CityName']; 
+                    $City = $_POST['CityID']; 
                 }else
                 {
-                    $CityName = "City name not set in POST Method";
+                    $City = "City not set in POST Method";
                 }
 
                 if($conn -> connect_error)
@@ -71,15 +72,16 @@
 
                 else
                 {
-                    $sql = "SELECT country_name.CountryName FROM country_name INNER JOIN general_information ON country_name.CountryCode = general_information.CountryCode INNER JOIN city ON general_information.CountryCode=city.CountryCode WHERE city.CityName = '$CityName'";
+                    $sql = "SELECT country_name.CountryName,city.CityName FROM country_name INNER JOIN general_information ON country_name.CountryCode = general_information.CountryCode INNER JOIN city ON general_information.CountryCode=city.CountryCode WHERE city.CityID = '$City'";
                     $data = mysqli_query($conn, $sql);
                     $result = mysqli_fetch_assoc($data);
                     echo "</br></br>";
                     echo "<fieldset>";
                     echo "<legend style='padding:10px;font-size:30px;'>Result </legend>";
-                    echo "$CityName is located in ";
+                    echo utf8_encode($result['CityName']) ;
+                    echo " is located in ";
                     echo "<span style='font-weight:bold;'>";
-                    echo $result['CountryName'];
+                    echo utf8_encode($result['CountryName']);
                     echo "</span>";
                     echo "</fieldset>";
                     

@@ -32,8 +32,8 @@
                                         echo    "<option value='' disabled selected>Select your option</option>"    ;
                                         while($row = $result->fetch_assoc())
                                         {
-                                            echo "<option value=". $row["CountryCode"].">"
-                                                                    . $row["CountryName"].
+                                            echo "<option value=". utf8_encode($row["CountryCode"]).">"
+                                                                    . utf8_encode($row["CountryName"]).
                                                     "</option>";
                                         }
                                         echo "</select></br></br>";

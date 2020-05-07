@@ -43,17 +43,18 @@
                                                     <label for='City_name'>City Name :</label></br></br>
                                                     <input type='text' name='City_name' id='City_name' value='$c_name'></br></br>
                                                     <label for='DistrictID'>District Name :</label></br></br>";
-                                    $sql = "SELECT district.DistrictID,district.DistrictName FROM district";
+                                    $sql = "SELECT DistrictID,DistrictName,country_name.CountryName FROM district INNER JOIN country_name where district.CountryCode=country_name.CountryCode ORDER BY district.DistrictID ASC";
                                     $result = $conn->query($sql);
                                         if ($result->num_rows > 0)
                                          {
                                             echo     "<select id='City_district' form='Update_City_Form' name='city_district'>"	;
-                                            echo     "<option value='".$c_district."' selected>".$c_district_name."</option>"    ;
+                                            echo     "<option value='".utf8_encode($c_district)."' selected>".utf8_encode($c_district_name)."</option>"    ;
                                             while($row = $result->fetch_assoc())
                                             {
-                                                echo "  <option value=". $row["DistrictID"].">"
-                                                                            . $row["DistrictName"].
-                                                     "</option>";
+                                                echo "<option value=". utf8_encode($row["DistrictID"]).">"
+                                                            . utf8_encode($row["DistrictName"]).
+                                                            "&emsp;[". utf8_encode($row["CountryName"])."]
+                                                        </option>";
                                             }
                                                 echo "</select></br></br>";
                                         }

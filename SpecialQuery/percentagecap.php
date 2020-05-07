@@ -5,7 +5,7 @@
         <meta name = "viewport" content = "width = device-width, initial-scale = 0.8"/>
         <link rel="icon" href="../css/globe.png">
         <link rel="stylesheet" href="../css/insert_style.css">
-        <link rel="stylesheet" href="../Select/Select_Style.css">
+        <link rel="stylesheet" href="../css/Select_Style.css">
         <link rel="stylesheet" type="text/css" media="only screen and (max-device-width: 1300px)" href="../css/small-device.css" />
         <link rel="stylesheet" type="text/css" media="only screen and (min-device-width: 1301px)" href="../css/big-device.css" />
         <title>Percentage of the capital</title>
@@ -31,16 +31,17 @@
                 <div class="box">
                     <label for = "Capital City">Name : </label>
                     
-                        <select name="CityName" required>
+                        <select name="CityID" required>
                             <option value='' disabled selected>Select your option</option>
                             <?php
-                                $sql1 = "SELECT city.CityName FROM city INNER JOIN general_information ON city.CityID = general_information.Capital ORDER BY CityName ASC";
+                                $sql1 = "SELECT city.cityID, city.CityName FROM city INNER JOIN general_information ON city.CityID = general_information.Capital ORDER BY CityName ASC";
                                 $data1 = mysqli_query($conn, $sql1);
                                 $result1 = mysqli_fetch_assoc($data1);
                                 while($result1 = mysqli_fetch_assoc($data1))
                                 {
-                                    $CapitalCity = $result1['CityName'];
-                                    echo "<option value= '$CapitalCity'>$CapitalCity</option>";
+                                    $CapitalCity = utf8_encode($result1['CityName']);
+                                    $CityID = $result1['cityID'];
+                                    echo "<option value= '$CityID'>$CapitalCity</option>";
                                 }
                             ?>
                         </select>
@@ -52,9 +53,9 @@
         <?php
             if(isset($_POST['submit']))
             {
-                if(isset($_POST['CityName']))
+                if(isset($_POST['CityID']))
                 {
-                    $CapitalCity = $_POST['CityName'];
+                    $CapitalCity = $_POST['CityID'];
                 }
                 else
                 {
@@ -66,16 +67,17 @@
                     die("Connection failed: .$conn->connect_error");
                 }
                 else{
-                    $sql = "SELECT general_information.Capital ,city.CityName, (city.PopulationCity / population.PopulationCountry) * 100 FROM general_information INNER JOIN city ON general_information.Capital = city.CityID INNER JOIN population ON general_information.CountryCode = population.CountryCode WHERE city.CityName = '$CapitalCity'";
+                    $sql = "SELECT general_information.Capital ,city.CityName, (city.PopulationCity / population.PopulationCountry) * 100 FROM general_information INNER JOIN city ON general_information.Capital = city.CityID INNER JOIN population ON general_information.CountryCode = population.CountryCode WHERE city.CityID = '$CapitalCity'";
                     $data = mysqli_query($conn, $sql);
                     $result = mysqli_fetch_assoc($data);
                     echo "</br></br>";
                     echo "<fieldset>";
                     echo "<legend style='padding:10px;font-size:30px;'>Result </legend>";
                     echo "The percentage of people living in ";
-                    echo "$CapitalCity is ";
+                    $cityName = utf8_encode($result['CityName']);
+                    echo "$cityName is ";
                     echo "<span style='font-weight:bold;'>";
-                    echo $result['(city.PopulationCity / population.PopulationCountry) * 100'];
+                    echo utf8_encode($result['(city.PopulationCity / population.PopulationCountry) * 100']);
                     echo " %";
                     echo "</span>";
                     echo "</fieldset>";

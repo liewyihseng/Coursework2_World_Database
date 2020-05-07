@@ -42,14 +42,14 @@
                                     $query="SELECT district.DistrictID,district.DistrictName FROM `district` where DistrictID='$d_name'";
                                     $s_result = $conn->query($query);
                                     $s_row = $s_result->fetch_assoc();
-                                    echo    "<option value='". $s_row["DistrictID"]."' selected>". $s_row["DistrictName"]."</option>"    ;
+                                    echo    "<option value='". utf8_encode($s_row["DistrictID"])."' selected>". utf8_encode($s_row["DistrictName"])."</option>"    ;
                                 }
                                 else
                                 echo    "<option value='' disabled selected>Select your option</option>"    ;
                                 while($row = $result->fetch_assoc())
                                 {
-                                    echo "<option value=". $row["DistrictID"].">"
-                                                            . $row["DistrictName"].
+                                    echo "<option value=". utf8_encode($row["DistrictID"]).">"
+                                                            . utf8_encode($row["DistrictName"]).
                                             "</option>";
                                 }
                                 echo "</select></br></br>

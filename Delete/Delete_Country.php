@@ -42,14 +42,14 @@
                                     $query="SELECT country_name.CountryCode,country_name.CountryName FROM `country_name` where CountryCode='$c_name'";
                                     $s_result = $conn->query($query);
                                     $s_row = $s_result->fetch_assoc();
-                                    echo    "<option value='". $s_row["CountryCode"]."' selected>". $s_row["CountryName"]."</option>"    ;
+                                    echo    "<option value='". utf8_encode($s_row["CountryCode"])."' selected>". utf8_encode($s_row["CountryName"])."</option>"    ;
                                 }
                                 else
                                     echo    "<option value='' disabled selected>Select your option</option>"    ;
                                 while($row = $result->fetch_assoc())
                                 {
-                                    echo "<option value=". $row["CountryCode"].">"
-                                                            . $row["CountryName"].
+                                    echo "<option value=". utf8_encode($row["CountryCode"]).">"
+                                                            . utf8_encode($row["CountryName"]).
                                             "</option>";
                                 }
                                 echo "</select></br></br>

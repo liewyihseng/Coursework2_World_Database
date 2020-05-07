@@ -5,7 +5,7 @@
         <meta name = "viewport" content = "width = device-width, initial-scale =0.8"/>
         <title>Ranking of Population in year 2000</title>
         <link rel="icon" href="../css/globe.png">
-        <link rel="stylesheet" href="../Select/Select_Style.css">
+        <link rel="stylesheet" href="../css/Select_Style.css">
         <link rel="stylesheet" href="../css/insert_style.css">
         <link rel="stylesheet" type="text/css" media="only screen and (max-device-width: 1300px)" href="../css/small-device.css" />
         <link rel="stylesheet" type="text/css" media="only screen and (min-device-width: 1301px)" href="../css/big-device.css" />
@@ -65,13 +65,13 @@
                     $result = mysqli_fetch_assoc($data);
                     $x =1;
                     echo "<table class=container>";
-                    echo "<tr><th>No.</th><th>Country Name</th><th>Surface Area</th></tr>";
+                    echo "<tr><th>No.</th><th>Country Name</th><th>Surface Area (km²)</th></tr>";
                     echo "<tr><td>";
                         echo $x;
                         echo "</td><td>";
-                        echo $result['CountryName'];
+                        echo utf8_encode($result['CountryName']);
                         echo "</td><td>";
-                        echo $result['SurfaceArea'];
+                        echo utf8_encode($result['SurfaceArea']);
                         echo "</td></tr>";
                         
                     while($result = mysqli_fetch_assoc($data))
@@ -79,9 +79,9 @@
                         echo "<tr><td>";
                         echo ++$x;
                         echo "</td><td>";
-                        echo $result['CountryName'];
+                        echo utf8_encode($result['CountryName']);
                         echo "</td><td>";
-                        echo $result['SurfaceArea'];
+                        echo utf8_encode($result['SurfaceArea']);
                         echo "</td></tr>";
                     }
 

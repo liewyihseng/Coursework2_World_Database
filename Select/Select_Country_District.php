@@ -5,8 +5,9 @@
 ?>
 <?php
     require "../nav_.php";
-    echo '<link rel="stylesheet" href="Select_Style.css">';
+    echo '<link rel="stylesheet" href="../css/Select_Style.css">';
 ?>
+<meta charset="UTF-8">
 <meta name = "viewport" content = "width = device-width, initial-scale = 0.5"/>
 <body style="padding:10px;width:100vw;margin:0 auto;">
     <h1 style="text-align:left;width:75%;margin: 0 auto;padding:20px;">DISTRICT</h1>
@@ -54,18 +55,23 @@
 		echo "<tr>
 				<th>District ID</th>
 				<th>Name of the District</th>
-                <th>Country Code</th>
+                <th>Country Name</th>
                 <th>Population of the District</th>
                 <th>Action</th>
 			  </tr>";
 			
         while($row = $result->fetch_assoc())
         {
+            $countrycode=$row["CountryCode"];
+            $sql1 = "SELECT country_name.CountryName from country_name WHERE country_name.CountryCode='$countrycode'";
+            $data1 = mysqli_query($conn, $sql1);
+            $result1 = mysqli_fetch_assoc($data1);
+            $CountryName = $result1['CountryName'];
             echo "<tr> 
-                        <td>" . $row["DistrictID"]. "</td>
-                        <td>" . $row["DistrictName"].  "</td>
-                        <td>" . $row["CountryCode"].  "</td>
-                        <td>" . $row["PopulationDistrict"].  "</td>
+                        <td>" . utf8_encode($row["DistrictID"]). "</td>
+                        <td>" . utf8_encode($row["DistrictName"]).  "</td>
+                        <td>" . utf8_encode($CountryName).  "</td>
+                        <td>" . utf8_encode($row["PopulationDistrict"]).  "</td>
                         <td><button type='submit' class='search_delete_update' style='margin:2px;' id='search-btn' name='search' onclick='window.location.href = `http://hfyyl2.mercury.nottingham.edu.my/Delete/Delete_District.php?District_ID=". $row["DistrictID"]."`'>Delete Data</button>
                             <button type='submit' class='search_delete_update' id='search-btn' name='search' style='margin:2px;' onclick='window.location.href = `http://hfyyl2.mercury.nottingham.edu.my/ChooseUpdate/Update/UpdateDistrict.php?DistrictID=". $row["DistrictID"]."`'>Update Data</button>
                         </td>";
@@ -77,7 +83,7 @@
         echo "<tr>
                 <th>District ID</th>
                 <th>Name of the District</th>
-                <th>Country Code</th>
+                <th>Country Name</th>
                 <th>Population of the District</th>
              </tr>";
         echo "</br></br>";

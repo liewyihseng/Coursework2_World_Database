@@ -49,11 +49,11 @@
                                     if ($result->num_rows > 0)
                                      {
                                         echo     "<select id='District_country' form='Update_District_Form' name='District_country'>"	;
-                                        echo     "<option value='".$d_country."' selected>".$d_country_name."</option>"    ;
+                                        echo     "<option value='".utf8_encode($d_country)."' selected>".utf8_encode($d_country_name)."</option>"    ;
                                         while($row = $result->fetch_assoc())
                                         {
-                                            echo "  <option value=". $row["CountryCode"].">"
-                                                                        . $row["CountryName"].
+                                            echo "  <option value=". utf8_encode($row["CountryCode"]).">"
+                                                                        . utf8_encode($row["CountryName"]).
                                                  "</option>";
                                         }
                                             echo "</select></br></br>";

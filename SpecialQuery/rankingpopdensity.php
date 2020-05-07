@@ -3,7 +3,7 @@
     <head>
         <meta charset = "utf-8"/>
         <meta name = "viewport" content = "width = device-width, initial-scale =0.8"/>
-        <link rel="stylesheet" href="../Select/Select_Style.css">
+        <link rel="stylesheet" href="../css/Select_Style.css">
         <link rel="stylesheet" href="../css/insert_style.css">
         <link rel="icon" href="../css/globe.png">
         <link rel="stylesheet" type="text/css" media="only screen and (max-device-width: 1300px)" href="../css/../css/small-device.css" />
@@ -68,9 +68,9 @@
                     echo "<tr><td>";
                         echo $x;
                         echo "</td><td>";
-                        echo $result['CountryName'];
+                        echo utf8_encode($result['CountryName']);
                         echo "</td><td>";
-                        echo $result['(population.PopulationCountry)/(geographical_information.SurfaceArea)'];
+                        echo utf8_encode($result['(population.PopulationCountry)/(geographical_information.SurfaceArea)']);
                         echo "</td></tr>";
                         
                     while($result = mysqli_fetch_assoc($data))
@@ -78,9 +78,9 @@
                         echo "<tr><td>";
                         echo ++$x;
                         echo "</td><td>";
-                        echo $result['CountryName'];
+                        echo utf8_encode($result['CountryName']);
                         echo "</td><td>";
-                        echo $result['(population.PopulationCountry)/(geographical_information.SurfaceArea)'];
+                        echo utf8_encode($result['(population.PopulationCountry)/(geographical_information.SurfaceArea)']);
                         echo "</td></tr>";
                     }
 

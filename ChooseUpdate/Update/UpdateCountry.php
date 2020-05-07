@@ -87,8 +87,8 @@
                                     echo    "<option value='$c_continent' selected required>$c_continent</option>"    ;
                                     while($row = $result->fetch_assoc())
                                     {
-                                        echo "  <option value=". $row["Continent"].">"
-                                                                . $row["Continent"].
+                                        echo "  <option value=". utf8_encode($row["Continent"]).">"
+                                                                . utf8_encode($row["Continent"]).
                                                 "</option>";
                                     }
                                     echo "</select></br></br>";
@@ -101,8 +101,8 @@
                                     echo    "<option value='$c_region' selected required>$c_region_name</option>"    ;
                                     while($row = $result->fetch_assoc())
                                     {
-                                        echo "  <option value=". $row["RegionID"].">"
-                                                                . $row["RegionName"].
+                                        echo "  <option value=". utf8_encode($row["RegionID"]).">"
+                                                                . utf8_encode($row["RegionName"]).
                                                 "</option>";
                                     }
                                     echo "</select></br></br>";
@@ -162,7 +162,7 @@
                                 $conn->query($sql);
                                 $result = $conn->query($sql);
                                 $row = $result->fetch_assoc();
-                                $c_capital_name= $row["CityName"];
+                                $c_capital_name= utf8_encode($row["CityName"]);
             
                                 echo "  <label for='country_InderYear'>Independent Year of the Country :&emsp;</label>
                                             <input type='number' name='country_InderYear' id='country_InderYear' value='$c_indep_year'></br></br>
@@ -179,8 +179,8 @@
                                     echo    "<option value='0'>none</option>"    ;
                                     while($row = $result->fetch_assoc())
                                     {
-                                        echo "  <option value=". $row["CityID"].">"
-                                                                . $row["CityName"].
+                                        echo "  <option value=". utf8_encode($row["CityID"]).">"
+                                                                . utf8_encode($row["CityName"]).
                                                 "</option>";
                                     }
                                     echo "</select></br></br></fieldset>";

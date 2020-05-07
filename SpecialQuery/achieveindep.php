@@ -5,7 +5,7 @@
         <meta name = "viewport" content = "width = device-width, initial-scale = 0.8"/>
         <link rel="icon" href="../css/globe.png">
     
-        <link rel="stylesheet" href="../Select/Select_Style.css">
+        <link rel="stylesheet" href="../css/Select_Style.css">
         <link rel="stylesheet" href="../css/insert_style.css">
         <link rel="stylesheet" type="text/css" media="only screen and (max-device-width: 1300px)" href="../css/small-device.css" />
         <link rel="stylesheet" type="text/css" media="only screen and (min-device-width: 1301px)" href="../css/big-device.css" />

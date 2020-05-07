@@ -5,10 +5,10 @@
 ?>
 <?php
     require "../nav_.php";
-    echo '<link rel="stylesheet" href="Select_Style.css">';
+    echo '<link rel="stylesheet" href="../css/Select_Style.css">';
 ?>
+<meta charset="UTF-8">
 <meta name = "viewport" content = "width = device-width, initial-scale = 0.5"/>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <body style="padding:10px;width:100vw;margin:0 auto;">
     <h1 style="text-align:left;width:75%;margin: 0 auto;padding:20px;">CITY</h1>
     <div class="search-div" style="display:flex;flex-direction: row ;">
@@ -57,16 +57,26 @@
             
             if ($result->num_rows > 0)
                 {
-                echo "<tr><th>City ID</th><th>City Name</th><th>Country code</th><th>District ID</th><th>Population of the city</th><th>Action</th></tr>";
+
+                echo "<tr><th>City ID</th><th>City Name</th><th>Country</th><th>District</th><th>Population of the city</th><th>Action</th></tr>";
                     
                 while($row = $result->fetch_assoc())
-                {
+                {   $countrycode=$row["CountryCode"];
+                    $sql1 = "SELECT country_name.CountryName from country_name WHERE country_name.CountryCode='$countrycode'";
+                    $data1 = mysqli_query($conn, $sql1);
+                    $result1 = mysqli_fetch_assoc($data1);
+                    $CountryName = $result1['CountryName'];
+                    $districtID=$row["DistrictID"];
+                    $sql1 = "SELECT district.DistrictName from district WHERE district.DistrictID='$districtID'";
+                    $data1 = mysqli_query($conn, $sql1);
+                    $result1 = mysqli_fetch_assoc($data1);
+                    $DistrictName = $result1['DistrictName'];
                     echo "<tr> 
-                                <td>" . $row["CityID"]. "</td>
-                                <td>" . $row["CityName"].  "</td>
-                                <td>" . $row["CountryCode"].  "</td>
-                                <td>". $row["DistrictID"]."</td>
-                                <td>". $row["PopulationCity"]."</td>
+                                <td>" . utf8_encode($row["CityID"]). "</td>
+                                <td>" . utf8_encode($row["CityName"]).  "</td>
+                                <td>" . utf8_encode($CountryName).  "</td>
+                                <td>". utf8_encode($DistrictName)."</td>
+                                <td>". utf8_encode($row["PopulationCity"])."</td>
                                 <td><button type='submit' class='search_delete_update' style='margin:2px;' id='search-btn' name='search' onclick='window.location.href = `http://hfyyl2.mercury.nottingham.edu.my/Delete/Delete_City.php?city_ID=". $row["CityID"]."`'>Delete Data</button>
                                     <button type='submit' class='search_delete_update' id='search-btn' name='search' style='margin:2px;' onclick='window.location.href = `http://hfyyl2.mercury.nottingham.edu.my/ChooseUpdate/Update/UpdateCity.php?CityID=". $row["CityID"]."`'>Update Data</button>
                                 </td>" ;

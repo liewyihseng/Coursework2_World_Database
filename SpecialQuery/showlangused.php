@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8"/>
         <meta name = "viewport" content = "width = device-width, initial-scale =0.8"/>
-        <link rel="stylesheet" href="../Select/Select_Style.css">
+        <link rel="stylesheet" href="../css/Select_Style.css">
         <link rel="stylesheet" href="../css/insert_style.css">
         <link rel="stylesheet" type="text/css" media="only screen and (max-device-width: 1300px)" href="../css/small-device.css" />
         <link rel="stylesheet" type="text/css" media="only screen and (min-device-width: 1301px)" href="../css/big-device.css" />
@@ -37,7 +37,7 @@
                             $result1 = mysqli_fetch_assoc($data1);
                             while($result1 = mysqli_fetch_assoc($data1))
                             {
-                                $CountryName = $result1['CountryName'];
+                                $CountryName = utf8_encode($result1['CountryName']);
                                 echo "<option value= '$CountryName'>$CountryName</option>";
                             }
                         ?>
@@ -79,14 +79,14 @@
                     echo "<tr><td>";
                     echo $x;
                     echo "</td><td>";
-                    echo $result['Language'];
+                    echo utf8_encode($result['Language']);
                     echo "</td></tr>";
                     while($result = mysqli_fetch_assoc($data))
                     {
                         echo "<tr><td>";
                         echo ++$x;
                         echo "</td><td>";
-                        echo $result['Language'];
+                        echo utf8_encode($result['Language']);
                         echo "</td></tr>";
                     }
                     $conn ->close();

@@ -4,7 +4,7 @@
         <meta charset = "utf-8"/>
         <meta name = "viewport" content = "width = device-width, initial-scale = 0.8"/>
         <link rel="icon" href="../css/globe.png">
-        <link rel="stylesheet" href="../Select/Select_Style.css">
+        <link rel="stylesheet" href="../css/Select_Style.css">
         <link rel="stylesheet" href="../css/insert_style.css">
         <link rel="stylesheet" type="text/css" media="only screen and (max-device-width: 1300px)" href="../css/small-device.css" />
         <link rel="stylesheet" type="text/css" media="only screen and (min-device-width: 1301px)" href="../css/big-device.css" />
@@ -39,7 +39,7 @@
                             
                             while($result1 = mysqli_fetch_assoc($data1))
                             {
-                                $RegionName = $result1['RegionName'];
+                                $RegionName = utf8_encode($result1['RegionName']);
                                 echo "<option value= '$RegionName'>$RegionName</option>";
                             }
                         ?>
@@ -76,7 +76,7 @@
                     echo "<fieldset>";
                     echo "<legend style='padding:10px;font-size:30px;'>Result </legend>";
                     echo "Country Name:&emsp; ";
-                    echo $result['CountryName'];
+                    echo utf8_encode($result['CountryName']);
                     echo "<br><br>";
                     echo "Population in the country:&emsp; ";
                     echo "<span style='font-weight:bold;'>";

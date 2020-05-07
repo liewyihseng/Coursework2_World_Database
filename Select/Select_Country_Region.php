@@ -5,7 +5,7 @@
 ?>
 <?php
     require "../nav_.php";
-    echo '<link rel="stylesheet" href="Select_Style.css">';
+    echo '<link rel="stylesheet" href="../css/Select_Style.css">';
 ?>
 <meta name = "viewport" content = "width = device-width, initial-scale = 0.5"/>
 <body style="padding:10px;width:100vw;margin:0 auto;">
@@ -61,9 +61,9 @@
         while($row = $result->fetch_assoc())
         {
             echo "<tr> 
-                        <td>" . $row["RegionID"]. "</td>
-                        <td>" . $row["RegionName"].  "</td>
-                        <td>" . $row["PopulationRegion"].  "</td>
+                        <td>" . utf8_encode($row["RegionID"]). "</td>
+                        <td>" . utf8_encode($row["RegionName"]).  "</td>
+                        <td>" . utf8_encode($row["PopulationRegion"]).  "</td>
                         <td><button type='submit' class='search_delete_update' style='margin:2px;' id='search-btn' name='search' onclick='window.location.href = `http://hfyyl2.mercury.nottingham.edu.my/Delete/Delete_Region.php?Region_ID=". $row["RegionID"]."`'>Delete Data</button>
                             <button type='submit' class='search_delete_update' id='search-btn' name='search' style='margin:2px;' onclick='window.location.href = `http://hfyyl2.mercury.nottingham.edu.my/ChooseUpdate/Update/UpdateRegion.php?regionID=". $row["RegionID"]."`'>Update Data</button>
                         </td>";

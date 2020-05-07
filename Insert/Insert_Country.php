@@ -57,8 +57,8 @@
                                                         echo    "<option value='' disabled selected>Select your option</option>"    ;
                                                         while($row = $result->fetch_assoc())
                                                         {
-                                                            echo "  <option value=". $row["Continent"].">"
-                                                                                    . $row["Continent"].
+                                                            echo "  <option value=". utf8_encode($row["Continent"]).">"
+                                                                                    . utf8_encode($row["Continent"]).
                                                                     "</option>";
                                                         }
                                                         echo "</select></br></br>";
@@ -73,8 +73,8 @@
                                                     echo    "<option value='' disabled selected>Select your option</option>"    ;
                                                     while($row = $result->fetch_assoc())
                                                     {
-                                                        echo "  <option value=". $row["RegionID"].">"
-                                                                                . $row["RegionName"].
+                                                        echo "  <option value=". utf8_encode($row["RegionID"]).">"
+                                                                                . utf8_encode($row["RegionName"]).
                                                                 "</option>";
                                                     }
                                                     echo "</select></br></br>";
@@ -111,8 +111,8 @@
                                     echo    "<option value='0'selected>none</option>"    ;
                                     while($row = $result->fetch_assoc())
                                     {
-                                        echo "  <option value=". $row["CityID"].">"
-                                                                . $row["CityName"].
+                                        echo "  <option value=". utf8_encode($row["CityID"]).">"
+                                                                . utf8_encode($row["CityName"]).
                                                 "</option>";
                                     }
                                     echo "</select></br></br>";

@@ -3,7 +3,7 @@
 <html>
 
   <head>
-    <link rel="stylesheet" href="../Select/Select_Style.css">
+    <link rel="stylesheet" href="../css/Select_Style.css">
     <link rel="stylesheet" href="../css/insert_style.css">	
     <link rel="stylesheet" type="text/css" media="only screen and (max-device-width: 1300px)" href="../css/small-device.css" />
     <link rel="stylesheet" type="text/css" media="only screen and (min-device-width: 1301px)" href="../css/big-device.css" />
@@ -44,7 +44,7 @@
 
      while($row = mysqli_fetch_assoc($result)) { 
         echo "<tr> 
-                    <td>" . $row["CityName"]. "</td>                
+                    <td>" . utf8_encode($row["CityName"]). "</td>                
                     <td>" . $row["CountryCode"].  "</td>
                     <td>" . $row["PopulationCity"].  "</td>";
         echo "</tr>";

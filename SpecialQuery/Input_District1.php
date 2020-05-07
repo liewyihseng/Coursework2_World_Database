@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" href="../Select/Select_Style.css">
+    <link rel="stylesheet" href="../css/Select_Style.css">
     <link rel="stylesheet" href="../css/insert_style.css">	
     <link rel="stylesheet" type="text/css" media="only screen and (max-device-width: 1300px)" href="../css/small-device.css" />
     <link rel="stylesheet" type="text/css" media="only screen and (min-device-width: 1301px)" href="../css/big-device.css" />	
@@ -19,7 +19,7 @@
         <button onclick="window.location.href='../Select/Select_Country_District.php'" style="padding: 15px;">Back</button>
     </div>
     <div>
-        <h1 style="text-align:left;width:75%;margin: 0 auto;padding:20px;">Population of City</h1>
+        <h1 style="text-align:left;width:75%;margin: 0 auto;padding:20px;">Population of District</h1>
     </div>
     </br>
 

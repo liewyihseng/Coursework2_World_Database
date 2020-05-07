@@ -40,14 +40,14 @@
                                     $query="SELECT country_region.RegionID,country_region.RegionName FROM `country_region` where RegionID='$r_name'";
                                     $s_result = $conn->query($query);
                                     $s_row = $s_result->fetch_assoc();
-                                    echo    "<option value='". $s_row["RegionID"]."' selected>". $s_row["RegionName"]."</option>"    ;
+                                    echo    "<option value='". utf8_encode($s_row["RegionID"])."' selected>". utf8_encode($s_row["RegionName"])."</option>"    ;
                                 }
                                 else
                                 echo    "<option value='' disabled selected>Select your option</option>"    ;
                                 while($row = $result->fetch_assoc())
                                 {
-                                    echo "<option value=". $row["RegionID"].">"
-                                                            . $row["RegionName"].
+                                    echo "<option value=". utf8_encode($row["RegionID"]).">"
+                                                            . utf8_encode($row["RegionName"]).
                                             "</option>";
                                 }
                                 echo "</select></br></br><input type = 'submit' name = 'submit' value = 'Submit'>

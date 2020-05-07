@@ -5,7 +5,7 @@
 ?>
 <?php
     require "../nav_.php";
-    echo '<link rel="stylesheet" href="Select_Style.css">';
+    echo '<link rel="stylesheet" href="../css/Select_Style.css">';
 ?>
 <meta name = "viewport" content = "width = device-width, initial-scale = 0.5"/>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -15,6 +15,7 @@
         <div style = "width:70%">
         <button type="submit" class="search" id="search-btn" name="search" onclick="window.location.href = '../SpecialQuery/showcountryindep.php';">Countries Achieving Independence Within A Range</button>
         <button type="submit" class="search" id="search-btn" name="search" onclick="window.location.href = '../Insert/Insert_Country.php';">Insert New Country Data</button>
+        <button type="submit" class="search" id="search-btn" name="search" onclick="window.location.href = '../SpecialQuery/showcity.php';">Show City List</button>
         </div>
         <form id="content" action="Select_Country_Name.php" method="get">
         <input type="text" name="input" class="input" id="search-input" value="<?php if (!empty($_GET["input"])) echo $_GET["input"];?>" placeholder="Country Name">
@@ -53,9 +54,9 @@
 	
 	if ($result->num_rows > 0) {
 		echo "<tr>
-				<th>Country Code</th>
-				<th>Country Code in 2 Alphabet</th>
 				<th>Country Name</th>
+				<th>Country Code in 2 Alphabet</th>
+				<th>Country Code</th>
 				<th>Local Name of the country</th>
 				<th>Action</th>
 			  </tr>";
@@ -63,10 +64,10 @@
         while($row = $result->fetch_assoc())
         {
             echo "<tr> 
+                        <td><a href='http://hfyyl2.mercury.nottingham.edu.my/SpecialQuery/Country_Detail.php?CountryCode=".utf8_encode($row["CountryCode"])."'><div>" . utf8_encode($row["CountryName"]). "</div></a></td>
+                        <td>" . utf8_encode($row["CountryCode2"]).  "</td>
                         <td><a href='http://hfyyl2.mercury.nottingham.edu.my/SpecialQuery/Country_Detail.php?CountryCode=".$row["CountryCode"]."'><div>" . $row["CountryCode"]. "</div></a></td>
-                        <td>" . $row["CountryCode2"].  "</td>
-                        <td>" . $row["CountryName"].  "</td>
-                        <td>". $row["LocalName"]."</td>
+                        <td>". utf8_encode($row["LocalName"])."</td>
                         <td><button type='submit' class='search_delete_update' style='margin:2px;' id='search-btn' name='search' onclick='window.location.href = `http://hfyyl2.mercury.nottingham.edu.my/Delete/Delete_Country.php?CountryCode=". $row["CountryCode"]."`'>Delete Data</button>
                             <button type='submit' class='search_delete_update' id='search-btn' name='search' style='margin:2px;' onclick='window.location.href = `http://hfyyl2.mercury.nottingham.edu.my/ChooseUpdate/Update/UpdateCountry.php?CountryCode=". $row["CountryCode"]."`'>Update Data</button>
                         </td>";
@@ -76,9 +77,9 @@
 	}
 	else {
         echo "<tr>
-                <th>Country Code</th>
-                <th>Country Code in 2 Alphabet</th>
                 <th>Country Name</th>
+                <th>Country Code in 2 Alphabet</th>
+                <th>Country Code</th>
                 <th>Local Name of the country</th>
               </tr>";
         echo "</br></br>";

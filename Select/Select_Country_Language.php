@@ -5,7 +5,7 @@
 ?>
 <?php
     require "../nav_.php";
-    echo '<link rel="stylesheet" href="Select_Style.css">';
+    echo '<link rel="stylesheet" href="../css/Select_Style.css">';
 ?>
 <meta name = "viewport" content = "width = device-width, initial-scale = 0.5"/>
 <body style="padding:10px;width:100vw;margin:0 auto;">
@@ -18,7 +18,7 @@
         <button type="submit" class="search" id="search-btn" name="search" onclick="window.location.href = '../Insert/Insert_Country.php';">Insert New Country Data</button>
         </div>
         <form id="content" action="Select_Country_Language.php" method="get" style="width:30%">
-            <input type="text" name="input" class="input" id="search-input" value="<?php if (!empty($_GET["input"])) echo $_GET["input"];?>" placeholder="Country Code">
+            <input type="text" name="input" class="input" id="search-input" value="<?php if (!empty($_GET["input"])) echo $_GET["input"];?>" placeholder="Country Name">
             <button type="submit" class="search" id="search-btn" name="search">FILTER</button>
         </form>
     </div>
@@ -40,7 +40,7 @@
     if(isset($_GET['search']))
     {
         $valueToSearch = $_GET["input"];
-        $sql = "SELECT * FROM `country_language` WHERE CountryCode = '$valueToSearch' ORDER BY 'CountryCode' ASC";
+        $sql = "SELECT * FROM `country_language` INNER JOIN country_name ON country_name.CountryCode=country_language.CountryCode AND country_name.CountryName='$valueToSearch'";
         $result = $conn->query($sql);   
     }
     else
@@ -58,20 +58,30 @@
 	
 	if ($result->num_rows > 0) {
 		echo "<tr>
-				<th>Country Code</th>
+				<th>Country Name</th>
 				<th>Language Used</th>
 				<th>Official Language of the country</th>
-				<th>Percentage of Usage of the language</th>
+				<th>Percentage of Usage of the Language (%)</th>
 				<th>Action</th>
 			  </tr>";
 			
         while($row = $result->fetch_assoc())
         {
+            $countrycode=$row["CountryCode"];
+            $sql1 = "SELECT country_name.CountryName from country_name WHERE country_name.CountryCode='$countrycode'";
+            $data1 = mysqli_query($conn, $sql1);
+            $result1 = mysqli_fetch_assoc($data1);
+            $CountryName = $result1['CountryName'];
+            $Official = $row["IsOfficial"];
+            if ($Official == 'T')
+                $Official='True';
+            else if ($Official == 'F')
+                $Official='False';
             echo "<tr> 
-                        <td><a href='http://hfyyl2.mercury.nottingham.edu.my/SpecialQuery/Country_Detail.php?CountryCode=".$row["CountryCode"]."'><div>" . $row["CountryCode"]. "</div></a></td>
-                        <td>" . $row["Language"].  "</td>
-                        <td>" . $row["IsOfficial"].  "</td>
-                        <td>". $row["PercentageLanguage"]."</td>
+                        <td><a href='http://hfyyl2.mercury.nottingham.edu.my/SpecialQuery/Country_Detail.php?CountryCode=".$row["CountryCode"]."'><div>" . utf8_encode($CountryName). "</div></a></td>
+                        <td>" . utf8_encode($row["Language"]).  "</td>
+                        <td>" . utf8_encode($Official).  "</td>
+                        <td>". utf8_encode($row["PercentageLanguage"])."</td>
                         <td><button type='submit' class='search_delete_update' style='margin:2px;' id='search-btn' name='search' onclick='window.location.href = `http://hfyyl2.mercury.nottingham.edu.my/Delete/Delete_Country.php?CountryCode=". $row["CountryCode"]."`'>Delete Data</button>
                             <button type='submit' class='search_delete_update' id='search-btn' name='search' style='margin:2px;' onclick='window.location.href = `http://hfyyl2.mercury.nottingham.edu.my/ChooseUpdate/Update/UpdateCountry.php?CountryCode=". $row["CountryCode"]."`'>Update Data</button>
                         </td>";
@@ -81,10 +91,10 @@
 	}
 	else {
         echo "<tr>
-                    <th>Country Code</th>
+                    <th>Country Name</th>
                     <th>Language Used</th>
                     <th>Official Language of the country</th>
-                    <th>Percentage of Usage of the language</th>
+                    <th>Percentage of Usage of the Language (%)</th>
               </tr>";
         echo "</br></br>";
         echo "<tr><th  colspan='4' style='background-color:#323C50'>0 Result</th><tr>";
